@@ -8,14 +8,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/welbertymartins/lambda-middleware.git"
+    "url": "git+https://github.com/welbertymartins/wam-lambda-middleware.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/welbertymartins/lambda-middleware/issues"
+    "url": "https://github.com/welbertymartins/wam-lambda-middleware/issues"
   },
-  "homepage": "https://github.com/welbertymartins/lambda-middleware#readme",
+  "homepage": "https://github.com/welbertymartins/wam-lambda-middleware#readme",
   "devDependencies": {
     "chai": "4.3.4",
     "mocha": "9.1.3",
