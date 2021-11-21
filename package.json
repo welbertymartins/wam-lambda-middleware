@@ -10,7 +10,7 @@
     "type": "git",
     "url": "git+https://github.com/welbertymartins/wam-lambda-middleware.git"
   },
-  "author": "",
+  "author": "https://github.com/welbertymartins",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/welbertymartins/wam-lambda-middleware/issues"
