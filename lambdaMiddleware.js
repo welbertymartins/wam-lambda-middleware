@@ -1,7 +1,7 @@
 const getEnv = (key) => process.env[key]
-const getRequestId = (event) => event["requestContext"]["requestId"]
-const getBodyRequest = (event) => event["body"]
-const getParam = (event, key) => event["queryStringParameters"][key]
+const getRequestId = (event) => () => event["requestContext"]["requestId"]
+const getBodyRequest = (event) => () => event["body"]
+const getParam = (event) => (key) => event["queryStringParameters"][key]
 
 const headers = { 
     public: {
