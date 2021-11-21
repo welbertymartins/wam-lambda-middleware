@@ -17,7 +17,7 @@ const statusCodes = {
     badRequest: 400,
     unauthorized: 401,
     notFound: 404,
-    serviceUnavailable: 503,
+    serviceUnavailable: 503
 }
 
 module.exports = { getEnv, getRequestId, getBodyRequest, getParam, headers, statusCodes }
