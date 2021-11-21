@@ -29,6 +29,22 @@ describe("Lambda Middleware", function() {
         expect(getEnv("AWS_PrivateKey")).to.equal("aws_private_key_test")
     })
 
+    it("Get Headers", function () {
+        const headers = lambdaMiddleware.headers
+        expect(headers.public).to.deep.equal({ "Access-Control-Allow-Origin" : "*" })
+    })
+
+    it("Get Status Codes", function () {
+        const statusCodes = lambdaMiddleware.statusCodes
+        expect(statusCodes.ok).to.equal(200)
+        expect(statusCodes.created).to.equal(201)
+        expect(statusCodes.movedPermanently).to.equal(301)
+        expect(statusCodes.notModified).to.equal(304)
+        expect(statusCodes.unauthorized).to.equal(401)
+        expect(statusCodes.notFound).to.equal(404)
+        expect(statusCodes.serviceUnavailable).to.equal(503)
+    })
+
     it("Get Request Id", function () {
         const getRequestId = lambdaMiddleware.getRequestId(fakeEvent)
         expect(getRequestId()).to.equal("id test")
