@@ -47,6 +47,10 @@ describe("Lambda Middleware", function() {
             "Access-Control-Allow-Origin" : "*",
             "Content-Type": "application/json"
         })
+        expect(headers.site).to.deep.equal({
+            "Access-Control-Allow-Origin" : "*",
+            "Content-Type": "text/html"
+        })
     })
 
     it("Get Status Codes", function () {

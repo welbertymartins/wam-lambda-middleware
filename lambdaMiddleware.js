@@ -11,6 +11,10 @@ const headers = {
                 "Content-Type": "application/json"
             }
         }
+    },
+    site: {
+        "Access-Control-Allow-Origin" : "*",
+        "Content-Type": "text/html"
     }
 }
 
