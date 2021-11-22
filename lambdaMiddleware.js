@@ -20,4 +20,9 @@ const statusCodes = {
     serviceUnavailable: 503
 }
 
-module.exports = { getEnv, getRequestId, getBodyRequest, getParam, headers, statusCodes }
+const getResponse = (statusCode) => (headers) => (bodyObj) => {
+    const body = JSON.stringify(bodyObj)
+    return { statusCode, headers, body }
+}
+
+module.exports = { getEnv, getRequestId, getBodyRequest, getParam, getResponse, headers, statusCodes }

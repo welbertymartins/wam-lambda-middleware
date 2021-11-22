@@ -23,6 +23,15 @@ describe("Lambda Middleware", function() {
         delete process.env.AWS_PrivateKey
     })
 
+    it("Get Response", function () {
+        const getResponse = lambdaMiddleware.getResponse
+        expect(getResponse(lambdaMiddleware.statusCodes.ok)(lambdaMiddleware.headers.public)({ ok: true }) ).to.deep.equal({
+            statusCode: 200,
+            headers: { "Access-Control-Allow-Origin" : "*" },
+            body: "{\"ok\":true}"
+        })
+    })
+
     it("Get Envs", function () {
         const getEnv = lambdaMiddleware.getEnv
         expect(getEnv("AWS_PublicKey")).to.equal("aws_public_key_test")
