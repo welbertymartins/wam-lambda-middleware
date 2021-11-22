@@ -2,7 +2,7 @@
 This is middleware that provides a more user-friendly interface for interacting with lambda functions.
 
 ## documentation
-Tests are the best documentation. See those in /test.
+Tests are the best documentation. See the ./test folder.
 
 ## install
 ### as a dependency
