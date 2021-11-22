@@ -1,6 +1,6 @@
 {
   "name": "wam-lambda-middleware",
-  "version": "2.1.2",
+  "version": "2.1.3",
   "description": "This is middleware that provides a more user-friendly interface for interacting with lambda functions.",
   "keywords": ["lambda-middleware", "wam-lambda"],
   "main": "lambdaMiddleware.js",
