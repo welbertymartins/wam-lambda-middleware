@@ -30,8 +30,23 @@ const statusCodes = {
     serviceUnavailable: 503
 }
 
+const pathCodes = {
+    service: 1,
+    input: {
+        a: 2,
+        b: 3,
+        c: 4,
+        d: 5,
+        e: 6,
+        f: 7,
+        g: 8,
+        h: 9,
+        i: 10
+    }
+}
+
 const getResponse = (statusCode) => (headers) => (body) => {
     return { statusCode, headers, body }
 }
 
-module.exports = { getEnv, getPathPart, getRequestId, getBodyRequest, getParam, getResponse, headers, statusCodes }
+module.exports = { getEnv, getPathPart, getRequestId, getBodyRequest, getParam, getResponse, headers, statusCodes, pathCodes }

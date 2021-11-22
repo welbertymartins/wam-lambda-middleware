@@ -38,9 +38,9 @@ describe("Lambda Middleware", function() {
 
     it("Get PathParts", function () {
         const getPathPart = lambdaMiddleware.getPathPart(fakeEvent)
-        expect(getPathPart(0)).to.equal("")
-        expect(getPathPart(1)).to.equal("test")
-        expect(getPathPart(2)).to.equal("15")
+        const pathCodes = lambdaMiddleware.pathCodes
+        expect(getPathPart(pathCodes.service)).to.equal("test")
+        expect(getPathPart(pathCodes.input.a)).to.equal("15")
     })
 
     it("Get Params", function () {
