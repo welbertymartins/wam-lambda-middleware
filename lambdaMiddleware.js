@@ -4,10 +4,14 @@ const getBodyRequest = (event) => () => event["body"]
 const getParam = (event) => (key) => event["queryStringParameters"][key]
 
 const headers = { 
-    public: {
-        "Access-Control-Allow-Origin" : "*",
-        "Content-Type": "application/json"
-    } 
+    api: {
+        json: {
+            public: {
+                "Access-Control-Allow-Origin" : "*",
+                "Content-Type": "application/json"
+            }
+        }
+    }
 }
 
 const statusCodes = {
@@ -21,8 +25,7 @@ const statusCodes = {
     serviceUnavailable: 503
 }
 
-const getResponse = (statusCode) => (headers) => (bodyObj) => {
-    const body = JSON.stringify(bodyObj)
+const getResponse = (statusCode) => (headers) => (body) => {
     return { statusCode, headers, body }
 }
 

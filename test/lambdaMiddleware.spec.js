@@ -25,13 +25,13 @@ describe("Lambda Middleware", function() {
 
     it("Get Response", function () {
         const getResponse = lambdaMiddleware.getResponse
-        expect(getResponse(lambdaMiddleware.statusCodes.ok)(lambdaMiddleware.headers.public)({ ok: true }) ).to.deep.equal({
+        expect(getResponse(lambdaMiddleware.statusCodes.ok)(lambdaMiddleware.headers.api.json.public)({ ok: true }) ).to.deep.equal({
             statusCode: 200,
             headers: { 
                 "Access-Control-Allow-Origin" : "*",
                 "Content-Type": "application/json"
             },
-            body: "{\"ok\":true}"
+            body: { ok: true }
         })
     })
 
@@ -43,7 +43,7 @@ describe("Lambda Middleware", function() {
 
     it("Get Headers", function () {
         const headers = lambdaMiddleware.headers
-        expect(headers.public).to.deep.equal({ 
+        expect(headers.api.json.public).to.deep.equal({
             "Access-Control-Allow-Origin" : "*",
             "Content-Type": "application/json"
         })
