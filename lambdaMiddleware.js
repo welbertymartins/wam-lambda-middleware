@@ -6,11 +6,7 @@ const getParam = (event) => (key) => event["queryStringParameters"][key]
 const headers = { 
     public: {
         "Access-Control-Allow-Origin" : "*",
-        "Content-Type": "application/json",
-        "Access-Control-Allow-Methods": [
-            "POST", 
-            "GET"
-        ]
+        "Content-Type": "application/json"
     } 
 }
 

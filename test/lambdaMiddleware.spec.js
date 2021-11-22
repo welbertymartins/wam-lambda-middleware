@@ -29,11 +29,7 @@ describe("Lambda Middleware", function() {
             statusCode: 200,
             headers: { 
                 "Access-Control-Allow-Origin" : "*",
-                "Content-Type": "application/json",
-                "Access-Control-Allow-Methods": [
-                    "POST", 
-                    "GET"
-                ]
+                "Content-Type": "application/json"
             },
             body: "{\"ok\":true}"
         })
@@ -49,11 +45,7 @@ describe("Lambda Middleware", function() {
         const headers = lambdaMiddleware.headers
         expect(headers.public).to.deep.equal({ 
             "Access-Control-Allow-Origin" : "*",
-            "Content-Type": "application/json",
-            "Access-Control-Allow-Methods": [
-                "POST", 
-                "GET"
-            ]
+            "Content-Type": "application/json"
         })
     })
 
