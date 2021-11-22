@@ -4,6 +4,10 @@ This is middleware that provides a more user-friendly interface for interacting 
 ## documentation
 Tests are the best documentation. See those in /test.
 
-## install
+## use
+### prod
 
-    npm i 
+    npm i wam-lambda-middleware
+### dev
+
+    npm i wam-lambda-middleware --save-dev
