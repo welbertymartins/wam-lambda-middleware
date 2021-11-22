@@ -1,7 +1,8 @@
 const getEnv = (key) => process.env[key]
+const getParam = (event) => (key) => event["queryStringParameters"][key]
 const getRequestId = (event) => () => event["requestContext"]["requestId"]
 const getBodyRequest = (event) => () => event["body"]
-const getParam = (event) => (key) => event["queryStringParameters"][key]
+const getPathPart = (event) => (part) => String(event.rawPath).split("/")[part]
 
 const headers = { 
     api: {
@@ -33,4 +34,4 @@ const getResponse = (statusCode) => (headers) => (body) => {
     return { statusCode, headers, body }
 }
 
-module.exports = { getEnv, getRequestId, getBodyRequest, getParam, getResponse, headers, statusCodes }
+module.exports = { getEnv, getPathPart, getRequestId, getBodyRequest, getParam, getResponse, headers, statusCodes }

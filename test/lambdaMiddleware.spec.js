@@ -9,7 +9,8 @@ const fakeEvent = {
     "queryStringParameters": {
         "publicKey": "public_key_test",
         "privateKey": "private_key_test"
-    }
+    },
+    "rawPath": "/test/15"
 }
 
 describe("Lambda Middleware", function() {
@@ -33,6 +34,19 @@ describe("Lambda Middleware", function() {
             },
             body: { ok: true }
         })
+    })
+
+    it("Get PathParts", function () {
+        const getPathPart = lambdaMiddleware.getPathPart(fakeEvent)
+        expect(getPathPart(0)).to.equal("")
+        expect(getPathPart(1)).to.equal("test")
+        expect(getPathPart(2)).to.equal("15")
+    })
+
+    it("Get Params", function () {
+        const getParam = lambdaMiddleware.getParam(fakeEvent)
+        expect(getParam("publicKey")).to.equal("public_key_test")
+        expect(getParam("privateKey")).to.equal("private_key_test")
     })
 
     it("Get Envs", function () {
@@ -74,9 +88,4 @@ describe("Lambda Middleware", function() {
         expect(getBodyRequest()).to.equal("body test")
     })
 
-    it("Get Params", function () {
-        const getParam = lambdaMiddleware.getParam(fakeEvent)
-        expect(getParam("publicKey")).to.equal("public_key_test")
-        expect(getParam("privateKey")).to.equal("private_key_test")
-    })
 })
