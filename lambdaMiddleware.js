@@ -16,6 +16,12 @@ const headers = {
     site: {
         "Access-Control-Allow-Origin" : "*",
         "Content-Type": "text/html"
+    },
+    plainText: {
+        public: {
+            "Access-Control-Allow-Origin" : "*",
+            "Content-Type": "text/plain"
+        }
     }
 }
 
