@@ -3,6 +3,7 @@ const getParam = (event) => (key) => event["queryStringParameters"][key]
 const getRequestId = (event) => () => event["requestContext"]["requestId"]
 const getBodyRequest = (event) => () => event["body"]
 const getPathPart = (event) => (part) => String(event.rawPath).split("/")[part]
+const getDomain = (event) => 'https://' + event['requestContext']['domainName']
 
 const headers = { 
     api: {
@@ -55,4 +56,4 @@ const getResponse = (statusCode) => (headers) => (body) => {
     return { statusCode, headers, body }
 }
 
-module.exports = { getEnv, getPathPart, getRequestId, getBodyRequest, getParam, getResponse, headers, statusCodes, pathCodes }
+module.exports = { getEnv, getPathPart, getRequestId, getBodyRequest, getParam, getResponse, getDomain, headers, statusCodes, pathCodes }

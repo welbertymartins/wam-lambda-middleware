@@ -3,7 +3,8 @@ const lambdaMiddleware = require("../lambdaMiddleware")
 
 const fakeEvent = {
     "requestContext": {
-        "requestId":  "id test"
+        "requestId":  "id test",
+        "domainName": "teste.com"
     },
     "body": "body test",
     "queryStringParameters": {
@@ -22,6 +23,11 @@ describe("Lambda Middleware", function() {
     afterEach(() => {
         delete process.env.AWS_PublicKey
         delete process.env.AWS_PrivateKey
+    })
+
+    it("Get Domain", function () {
+        const getDomain = lambdaMiddleware.getDomain
+        expect(getDomain(fakeEvent)).to.equal('https://teste.com')
     })
 
     it("Get Response", function () {
