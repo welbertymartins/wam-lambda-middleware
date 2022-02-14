@@ -3,7 +3,7 @@ const lambdaMiddleware = require("../lambdaMiddleware")
 
 const fakeEvent = {
     "requestContext": {
-        "requestId":  "id test",
+        "requestId": "id test",
         "domainName": "teste.com"
     },
     "body": "body test",
@@ -14,7 +14,7 @@ const fakeEvent = {
     "rawPath": "/test/15"
 }
 
-describe("Lambda Middleware", function() {
+describe("Lambda Middleware", function () {
     beforeEach(() => {
         process.env.AWS_PublicKey = "aws_public_key_test"
         process.env.AWS_PrivateKey = "aws_private_key_test"
@@ -32,10 +32,10 @@ describe("Lambda Middleware", function() {
 
     it("Get Response", function () {
         const getResponse = lambdaMiddleware.getResponse
-        expect(getResponse(lambdaMiddleware.statusCodes.ok)(lambdaMiddleware.headers.api.json.public)({ ok: true }) ).to.deep.equal({
+        expect(getResponse(lambdaMiddleware.statusCodes.ok)(lambdaMiddleware.headers.api.json.public)({ ok: true })).to.deep.equal({
             statusCode: 200,
-            headers: { 
-                "Access-Control-Allow-Origin" : "*",
+            headers: {
+                "Access-Control-Allow-Origin": "*",
                 "Content-Type": "application/json"
             },
             body: { ok: true }
@@ -64,11 +64,11 @@ describe("Lambda Middleware", function() {
     it("Get Headers", function () {
         const headers = lambdaMiddleware.headers
         expect(headers.api.json.public).to.deep.equal({
-            "Access-Control-Allow-Origin" : "*",
+            "Access-Control-Allow-Origin": "*",
             "Content-Type": "application/json"
         })
         expect(headers.site).to.deep.equal({
-            "Access-Control-Allow-Origin" : "*",
+            "Access-Control-Allow-Origin": "*",
             "Content-Type": "text/html"
         })
     })

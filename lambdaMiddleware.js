@@ -5,22 +5,22 @@ const getBodyRequest = (event) => () => event["body"]
 const getPathPart = (event) => (part) => String(event.rawPath).split("/")[part]
 const getDomain = (event) => 'https://' + event['requestContext']['domainName']
 
-const headers = { 
+const headers = {
     api: {
         json: {
             public: {
-                "Access-Control-Allow-Origin" : "*",
+                "Access-Control-Allow-Origin": "*",
                 "Content-Type": "application/json"
             }
         }
     },
     site: {
-        "Access-Control-Allow-Origin" : "*",
+        "Access-Control-Allow-Origin": "*",
         "Content-Type": "text/html"
     },
     plainText: {
         public: {
-            "Access-Control-Allow-Origin" : "*",
+            "Access-Control-Allow-Origin": "*",
             "Content-Type": "text/plain"
         }
     }
